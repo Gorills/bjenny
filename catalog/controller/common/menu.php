@@ -7,6 +7,7 @@ class ControllerCommonMenu extends Controller {
 		$this->load->model('catalog/category');
 
 		$this->load->model('catalog/product');
+        $this->load->model('tool/image');
 
 		$data['categories'] = array();
 
@@ -32,7 +33,13 @@ class ControllerCommonMenu extends Controller {
 				}
 
 				// Level 1
-				$data['categories'][] = array(
+                if($category['image']){
+                    $image = $this->model_tool_image->resize($category['image'], 30, 30);
+                } else {
+                    $image = false;
+                }
+                $data['categories'][] = array(
+                    'image'    => $image,
 					'name'     => $category['name'],
 					'children' => $children_data,
 					'column'   => $category['column'] ? $category['column'] : 1,
