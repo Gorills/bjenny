@@ -1,0 +1,33 @@
+.header {
+    width: 100%;
+    margin: 0 auto;
+    background-color: $bgc-dark;
+    // .header__inner
+
+    &__inner {
+        width: 100%;
+        padding: 15px;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    // .header__logo
+
+    &__logo {
+        display: block;
+    }
+
+
+    // .header__img
+
+    &__img {
+        height: 100px;
+    }
+
+    // .header__lk
+
+    &__lk {
+        display: flex;
+        align-items: center;
+    }
+}

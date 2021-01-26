@@ -1,0 +1,33 @@
+{
+  "name": "opencart",
+  "main": "gulpfile.js",
+  "author": "Shmasya",
+  "license": "ISC",
+  "scripts": {
+    "init": "npm i",
+    "build": "npx gulp build",
+    "serve": "npx gulp",
+    "zip": "npx gulp zip"
+  },
+  "dependencies": {
+    "animatewithsass": "^3.2.1",
+    "bootstrap": "^4.6.0",
+    "jquery": "^3.5.1",
+    "vh-check": "^2.0.5"
+  },
+  "devDependencies": {
+    "browser-sync": "^2.26.13",
+    "del": "^6.0.0",
+    "gulp": "^4.0.2",
+    "gulp-autoprefixer": "^7.0.1",
+    "gulp-csso": "^4.0.1",
+    "gulp-file-include": "^2.3.0",
+    "gulp-sass": "^4.1.0",
+    "gulp-uglify": "^3.0.2",
+    "gulp-watch": "^5.0.1",
+    "gulp-webp": "^4.0.1",
+    "node-sass-tilde-importer": "^1.0.2",
+    "run-sequence": "^2.2.1",
+    "yargs": "^16.2.0"
+  }
+}
