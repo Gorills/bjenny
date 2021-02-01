@@ -1,14 +1,3 @@
-{{ header }}
-{# container none #}
-
-<a href="#" class="new">
-  <div class="new__inner">
-    <p class="new__button btn-white">New</p>
-  </div>
-  <img src="image/catalog/background/bg-desc.jpg" alt="" class="new__img">
-</a>
-
-
 <div class="collection">
   <div class="container-custom">
     <div class="collection__wrap">
@@ -50,24 +39,3 @@ $('#carousel{{ module }}').swiper({
   spaceBetween: 20
 });
 --></script>
-
-
-<div id="common-home">
-  <div class="row">{{ column_left }}
-    {% if column_left and column_right %}
-    {% set class = 'col-sm-6' %}
-    {% elseif column_left or column_right %}
-    {% set class = 'col-sm-9' %}
-    {% else %}
-    {% set class = 'col-sm-12' %}
-    {% endif %}
-    <div id="content" class="{{ class }}">
-      {{ content_top }}
-     
-      {{ content_bottom }}
-    </div>
-    {{ column_right }}</div>
-</div>
-
-
-{{ footer }}
