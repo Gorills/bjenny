@@ -1,0 +1,140 @@
+.product-custom {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 40px;
+    // .product-custom__item
+
+    &__item {
+        width: 100%;
+        text-align: center;
+    }
+    &__item + &__item {
+        margin-left: 20px;
+    }
+
+    // .product-custom__image-row
+
+    &__image-row {
+        width: 100%;
+        height: auto;
+        overflow: hidden;
+        
+        position: relative;
+        &:hover .product-custom__button-cart {
+            opacity: 100;
+        }
+
+    }
+
+    // .product-custom__image-link
+    &__image-link {
+        display: block;
+        width: 100%;
+        height: auto;
+        margin: 0;
+        padding: 0;
+    }
+    // .product-custom__button-cart
+    // .product-custom__image
+
+    &__image {
+        width: 100%;
+        object-fit: cover;
+        height: 100%;
+    }
+    &__button-cart {
+        outline: none;
+        position: absolute;
+        background-color: #000;
+        left: 50%;
+        transform: translateX(-50%);
+        bottom: 0;
+        width: 100%;
+        border: none;
+        color: #e0e0e0;
+        padding: 10px 20px;
+        text-align: center;
+        z-index: 3;
+        opacity: 0;
+        transition: $transition;
+    }
+
+    // .product-custom__caption
+
+    &__caption {
+        font-size: 12px;
+    }
+
+    // .product-custom__link
+
+    &__link {
+        text-decoration: none;
+        color: $fonts-gray;
+        transition: $transition;
+        text-transform: uppercase;
+        line-height: 1.2em;
+        
+
+        &:hover {
+            color: #000000;
+            text-decoration: none;
+        }
+
+    }
+    // .product-custom__caption-title
+    &__caption-title {
+        font-size: 12px;
+    }
+
+    // .product-custom__rating
+
+    &__rating {
+    }
+
+    // .product-custom__price
+
+    &__price {
+        
+    }
+
+    // .product-custom__price-new
+
+    &__price-new {
+    }
+
+    // .product-custom__price-old
+
+    &__price-old {
+        margin-left: 15px;
+        text-decoration: line-through;
+    }
+
+    // .product-custom__price-tax
+
+    &__price-tax {
+    }
+
+    // .product-custom__button-group
+
+    &__button-group {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+    }
+
+    // .product-custom__button
+
+    &__button {
+        background: none;
+        border: none;
+        color: #ffffff;
+        outline: none ;
+        transition: $transition;
+        &:hover {
+            color: $fonts-gray;
+        }
+
+    }
+}
+

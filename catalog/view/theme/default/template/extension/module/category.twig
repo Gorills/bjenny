@@ -1,4 +1,4 @@
-{# <div class="list-group">
+<div class="list-group">
   {% for category in categories %}
   {% if category.category_id == category_id %} 
   <a href="{{ category.href }}" class="list-group-item active">{{ category.name }}</a> 
@@ -14,9 +14,9 @@
   {% else %} <a href="{{ category.href }}" class="list-group-item">{{ category.name }}</a>
   {% endif %}
   {% endfor %}
-</div> #}
+</div>
 
-<div class="collection">
+{# <div class="collection">
   <div class="container-custom">
     <div class="collection__wrap">
       <h2 class="title">Коллекция</h2>
@@ -53,8 +53,8 @@ $('#carousel{{ module }}').swiper({
 	nextButton: '.collection__button-next',
   prevButton: '.collection__button-prev', 
 	autoplay: false,
-	loop: true,
+	loop: false,
   spaceBetween: 20
 });
---></script>
+--></script> #}
 
