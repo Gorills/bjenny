@@ -23,6 +23,27 @@ function getURLVar(key) {
 }
 
 $(document).ready(function() {
+
+	// Menu catalog open
+	$('.header__item-drop').hover(function(e){
+		e.preventDefault();
+		
+		$('.header__menu').addClass('header__menu--active');
+		$('.header').addClass('header--catalog');
+
+	});
+	$('.header__menu').mouseleave(function(){
+		$('.header__menu').removeClass('header__menu--active');
+		$('.header').removeClass('header--catalog');
+	});
+	$('.header__link').hover(function(){
+		$('.header__menu').removeClass('header__menu--active');
+		$('.header').removeClass('header--catalog');
+	});
+
+
+
+
 	// Highlight any found errors
 	$('.text-danger').each(function() {
 		var element = $(this).parent().parent();
