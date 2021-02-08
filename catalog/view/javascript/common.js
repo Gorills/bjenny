@@ -22,25 +22,53 @@ function getURLVar(key) {
 	}
 }
 
+$(window).scroll(function() {
+	var height = $(window).scrollTop();
+	 /*Если сделали скролл на 100px задаём новый класс для header*/
+	if(height > 1){
+	$('header').addClass('header--fixed');
+	$('.header__menu').addClass('header__menu--fixed');
+	$('.header__dropdown').addClass('header__dropdown--fixed');
+
+
+	} else{
+	/*Если меньше 100px удаляем класс для header*/
+	$('header').removeClass('header--fixed');
+	}
+});
+
 $(document).ready(function() {
 
 	// Menu catalog open
 	$('.header__item-drop').hover(function(e){
 		e.preventDefault();
 		
+		$('.header__dropdown').removeClass('header__dropdown--active');
+		$('.header').removeClass('header--menu');
 		$('.header__menu').addClass('header__menu--active');
 		$('.header').addClass('header--catalog');
 
 	});
-	$('.header__menu').mouseleave(function(){
-		$('.header__menu').removeClass('header__menu--active');
-		$('.header').removeClass('header--catalog');
-	});
-	$('.header__link').hover(function(){
+
+	$('.header__menu').mouseleave(function(e){
+		e.preventDefault();
 		$('.header__menu').removeClass('header__menu--active');
 		$('.header').removeClass('header--catalog');
 	});
 
+	$('.header__link').hover(function(e){
+		e.preventDefault();
+		$('.header__menu').removeClass('header__menu--active');
+		$('.header').removeClass('header--catalog');
+	});
+	$('.header__dropdown-link').click(function(e){
+		e.preventDefault();
+		$('.header').toggleClass('header--menu');
+
+		$('.header__dropdown').toggleClass('header__dropdown--active');
+		
+
+	});
 
 
 

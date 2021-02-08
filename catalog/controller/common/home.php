@@ -48,7 +48,7 @@ class ControllerCommonHome extends Controller {
 
         				// Level 1
                         if($category['image']){
-                            $image = $this->model_tool_image->resize($category['image'], 30, 30);
+                            $image = $this->model_tool_image->resize($category['image'], 330, 495);
                         } else {
                             $image = false;
                         }
