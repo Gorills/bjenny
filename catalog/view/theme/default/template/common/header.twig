@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <!--[if IE]><![endif]-->
 <!--[if IE 8 ]><html dir="{{ direction }}" lang="{{ lang }}" class="ie8"><![endif]-->
@@ -7,7 +9,7 @@
 <!--<![endif]-->
 <head>
 <meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <title>{{ title }}</title>
 {% if robots %}
@@ -54,6 +56,19 @@
 
 <header class="header">
   <div class="header__inner">
+
+      <div class="header__mobile-menu">
+        <a href="#" class="header__mobile-burger">
+            <img class="header__svg--two" src="image/menu.png" alt="">
+        </a>
+        <a href="#"><i class="fa fa-search search-popup"></i></a>
+        <a href="{{ wishlist }}" id="wishlist-total" title="{{ text_wishlist }}">
+              <i class="fa fa-heart"></i> 
+              {# <span class="hidden-xs hidden-sm hidden-md">{{ text_wishlist }}</span> #}
+            </a>
+
+      </div>
+
 
     <div class="header__logo">
          {% if logo %}
@@ -116,10 +131,14 @@
       {# Тут доделать надо язык потом #}
       {# {{ language }} #}
       
+      {{ search }}
+
       <div id="top-links" class="nav pull-right">
 
-      
         <ul class="list-inline">
+
+          <li><a href="#"><i class="fa fa-search search-popup"></i></a></li>
+
 
           <li class="dropdown">
 

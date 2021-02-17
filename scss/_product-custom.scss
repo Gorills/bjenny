@@ -5,18 +5,22 @@
     display: flex;
     justify-content: space-between;
     margin-bottom: 80px;
+    flex-wrap: wrap;
     // .product-custom__item
+
+    @media screen and (max-width:768px){
+        flex-direction: column;
+    }
 
     &__item {
         width: 100%;
         text-align: center;
         max-width: 377px;
         height: 471px;
-        margin: 0 auto;
+        // padding: 20px;
+        margin: 0 auto 80px;
     }
-    &__item + &__item {
-        margin-left: 20px;
-    }
+    
 
     // .product-custom__image-row
 
@@ -78,6 +82,7 @@
     &__caption {
         margin-top: 20px;
         font-size: 12px;
+        display: block;
         
     }
 

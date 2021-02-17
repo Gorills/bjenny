@@ -47,31 +47,6 @@
 
 
 
-
-
-
-
-
-
-
-
-
-<script type="text/javascript"><!--
-
-$('#carousel{{ module }}').swiper({
-	mode: 'horizontal',
-	slidesPerView: 4,
-	
-	paginationClickable: true,
-	nextButton: '.collection__button-next',
-  prevButton: '.collection__button-prev', 
-	autoplay: false,
-	loop: false,
-  spaceBetween: 20
-});
---></script>
-
-
 <div id="common-home">
   <div class="row">{{ column_left }}
     {% if column_left and column_right %}
@@ -89,5 +64,48 @@ $('#carousel{{ module }}').swiper({
     {{ column_right }}</div>
 </div>
 
+
+
+
+
+
+<script type="text/javascript"><!--
+
+
+
+function windowSize(){
+    if( $(window).width()  >= 768 ) {
+      $('#carousel{{ module }}').swiper({
+      mode: 'horizontal',
+      slidesPerView: 4,
+      
+      paginationClickable: true,
+      nextButton: '.collection__button-next',
+      prevButton: '.collection__button-prev', 
+      autoplay: false,
+      loop: false,
+      spaceBetween: 20
+    });
+    } else {  
+     $('#carousel{{ module }}').swiper({
+      mode: 'horizontal',
+      slidesPerView: 2,
+      
+      paginationClickable: true,
+      nextButton: '.collection__button-next',
+      prevButton: '.collection__button-prev', 
+      autoplay: false,
+      loop: false,
+      spaceBetween: 20
+    });
+
+    }
+}
+
+// или "два-в-одном", вместо двух последних строк:
+$(window).on('load resize',windowSize);
+
+
+--></script>
 
 {{ footer }}
