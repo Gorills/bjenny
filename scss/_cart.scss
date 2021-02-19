@@ -1,15 +1,54 @@
-.open {
-    .dropdown-menu {
-        
-        top: 80px;
-        // bottom: 0;
-        width: 100%;
-        max-width: 350px;
 
-        a {
-            color: $fonts-gray;
+.cart-custom {
+    position: relative;
+
+    &__count {
+        display: block;
+        background-color: $bgc-gray-two;
+        position: absolute;
+        bottom: -10px;
+        right: -10px;
+        border-radius: 50px;
+        width: 20px;
+        height: 20px;
+        color: $fonts-gray;
+        font-size: 11px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+    }
+
+    button {
+        background: none;
+        color: #ffffff;
+        padding: 0;
+        margin: 0;
+
+        &:hover {
+            color: #ffffff;
         }
 
     }
 
+
+    .open {
+        width: 450px;
+        .dropdown-menu {
+            
+            top: 80px;
+            // bottom: 0;
+            width: 100%;
+            min-width: 500px;
+            
+    
+            a {
+                color: $fonts-gray;
+            }
+    
+        }
+    
+    }
+
 }
+
