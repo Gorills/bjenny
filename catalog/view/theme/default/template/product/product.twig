@@ -43,7 +43,8 @@
         {# Галерея #}
           <ul class="thumbnails">
             {% if images %}
-            <div class="thumbnails__left">
+
+            <div class="thumbnails__left" id="thumbnails__left">
               {% for image in images %}
               <li class="image-additional">
                 <a class="thumbnail" href="{{ image.popup }}" title="{{ heading_title }}"> 
@@ -52,8 +53,10 @@
               </li>
               {% endfor %}
             </div>
+            
+
             {% if thumb %}
-            <li>
+            <li class="thumbnails__right">
               <a class="thumbnail" href="{{ popup }}" title="{{ heading_title }}">
                 <img src="{{ thumb }}" title="{{ heading_title }}" alt="{{ heading_title }}" />
               </a>
@@ -66,6 +69,23 @@
           </ul>
           {% endif %}
 
+<script>
+
+  $('#thumbnails__left').swiper({
+      mode: 'horizontal',
+      slidesPerView: 4,
+      
+      paginationClickable: true,
+      nextButton: '.collection__button-next',
+      prevButton: '.collection__button-prev', 
+      autoplay: false,
+      loop: false,
+      spaceBetween: 20
+    });
+
+
+});
+</script>
           
           {# <ul class="nav nav-tabs">
             <li class="active"><a href="#tab-description" data-toggle="tab">{{ tab_description }}</a></li>
@@ -206,7 +226,7 @@
             {% for option in options %}
 
             
-            {# {% if option.type == 'select' %}
+            {% if option.type == 'select' %}
             <div class="form-group{% if option.required %} required {% endif %}">
               <label class="control-label" for="input-option{{ option.product_option_id }}">{{ option.name }}</label>
               <select name="option[{{ option.product_option_id }}]" id="input-option{{ option.product_option_id }}" class="form-control">
@@ -219,7 +239,7 @@
                 {% endfor %}
               </select>
             </div>
-            {% endif %} #}
+            {% endif %}
             {% if option.type == 'radio' %}
             {# <div class="form-group{% if option.required %} required {% endif %}">
               <label class="control-label">{{ option.name }}</label>
@@ -655,6 +675,10 @@ $('button[id^=\'button-upload\']').on('click', function() {
 });
 //--></script> 
 <script type="text/javascript"><!--
+
+
+
+
 $('#review').delegate('.pagination a', 'click', function(e) {
     e.preventDefault();
 
@@ -705,6 +729,8 @@ $(document).ready(function() {
 			enabled: true
 		}
 	});
+  
+
 });
 //--></script> 
 {{ footer }} 

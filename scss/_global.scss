@@ -1,8 +1,6 @@
 body {
     box-sizing: border-box;
-    @media screen and (max-width:768px) {
-        overflow: scroll;
-    }
+   
 }
 
 .row {
@@ -83,4 +81,37 @@ ol, ul {
         color: #bdbdbd;;
     }
 
+}
+#information-information {
+    min-height: 80vh;
+}
+
+.alert {
+    padding: 15px;
+    margin-bottom: 0;
+    border: none;
+    border-radius: 0;
+    position: fixed;
+    width: 100%;
+    left: 0;
+    bottom: 0;
+    z-index: 23;
+    background-color: $bgc-gray;
+    
+    color: #ffffff;
+
+    .close {
+        margin-right: 20px;
+    }
+    a {
+        color: #ffffff;
+        font-weight: 700;
+    }
+    button {
+        background: none;
+        color: #ffffff;
+    }
+
+   
+    
 }

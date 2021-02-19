@@ -2,15 +2,27 @@
     display: flex;
     justify-content: space-between;
     color: $fonts-gray;
+
+    @media screen and (max-width:768px) {
+        flex-direction: column;
+    }
     
 
     &__left {
         width: 70%;
+        @media screen and (max-width:768px) {
+            width: 100%;
+            margin-bottom: 20px;
+        }
     }
 
     &__right {
         margin-left: 20px;
         width: 60%;
+        @media screen and (max-width:768px) {
+            width: 100%;
+            margin-left: 0;
+        }
 
 
         h2, h3 {
@@ -123,16 +135,27 @@
     display: flex;
     padding: 0;
 
+    @media screen and (max-width:768px) {
+        flex-direction: column;
+    }
+
     &__left {
         display: flex;
         flex-direction: column;
         list-style: none;
+        @media screen and (max-width:768px) {
+            flex-direction: row;
+            order: 2;
+        }
+
 
         li {
 
 
         }
     }
+
+
 
     a.thumbnail.active, a.thumbnail:focus, a.thumbnail:hover {
         border: none;

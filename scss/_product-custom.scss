@@ -75,6 +75,9 @@
         z-index: 3;
         opacity: 0;
         transition: $transition;
+        @media screen and (max-width:1366px){
+            opacity: 100%; 
+        }
     }
 
     // .product-custom__caption
