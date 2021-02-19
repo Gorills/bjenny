@@ -1,6 +1,8 @@
 
 .cart-custom {
-    position: relative;
+    button {
+        position: relative;
+    }
 
     &__count {
         display: block;
@@ -32,23 +34,58 @@
     }
 
 
-    .open {
-        width: 450px;
-        .dropdown-menu {
-            
-            top: 80px;
-            // bottom: 0;
-            width: 100%;
-            min-width: 500px;
-            
     
-            a {
-                color: $fonts-gray;
-            }
-    
+        
+    .dropdown-menu {
+        
+        // top: 80px;
+        // bottom: 0;
+        color: #ffffff;
+        right: 0;
+        width: 100%;
+        max-width: 500px;
+        border-radius: 0;
+        padding: 15px;
+        background-color: $bgc-gray;
+        margin: 0;
+        overflow-y: scroll;
+        max-height: 86vh;
+        @media screen and (max-width:768px){
+            max-width: 100%;
         }
-    
+
+        img {
+            width: 100%;
+            max-width: 80px;
+            padding: 0;
+            border-radius: 0;
+            border: none;
+        }
+
+        a {
+            color: #ffffff;
+        }
+
+        i {
+            color: #ffffff;
+        }
+
+        button {
+            background-color: #000000;
+            border: none;
+            border-radius: 0;
+            color: #ffffff;
+            padding: 2px 5px;
+
+        }
+
+        tr {
+            background-color: $bgc-gray!important;
+        }
+
     }
+    
+   
 
 }
 

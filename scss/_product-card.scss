@@ -77,6 +77,25 @@
         margin-top: 20px;
     }
 
+    input, select {
+        border-radius: 0!important;
+        outline: none;
+        box-shadow: none!important;
+        
+    
+        &:focus {
+            outline: none!important;
+            box-shadow: none;
+            border: 1px solid #ccc!important;
+        }
+        &:hover {
+            outline: none;
+            box-shadow: none!important;
+            border: 1px solid #ccc!important;
+    
+        }
+    }
+
 }
 
 
