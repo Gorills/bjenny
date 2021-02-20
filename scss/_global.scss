@@ -139,11 +139,14 @@ ol, ul {
     border: 1px solid #000000;
     border-radius: 0;
     transition: $transition;
+    color: #ffffff;
     &:hover {
         background-color: #000;
         color: $fonts-gray;
     }
     &:focus {
+        background-color: #000;
+        color: $fonts-gray;
 
     }
 
@@ -169,3 +172,9 @@ ol, ul {
     letter-spacing: .1em;
 }
 
+.quickcheckout-content {
+    img {
+        width: 100%;
+        max-width: 80px;
+    }
+}

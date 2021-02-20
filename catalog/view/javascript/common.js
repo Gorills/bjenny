@@ -64,7 +64,7 @@ function scrolling(){
 $(window).on('load resize',scrolling);
 
 function windowSize(){
-    if( $(window).width()  >= 768 ) {
+    if( $(window).width()  > 1366 ) {
 		// Menu catalog open
 		$('.header__item-drop').hover(function(e){
 			e.preventDefault();
@@ -77,8 +77,6 @@ function windowSize(){
 			
 
 		});
-
-
 
 		$('.header__menu').mouseleave(function(e){
 			e.preventDefault();
@@ -128,9 +126,14 @@ function windowSize(){
 			e.preventDefault();
 			$('.header__nav').toggleClass('header__nav--active');
 			$('.search-custom').removeClass('search-custom--active');
-		
 
-			if ( $(".header__nav").hasClass('header__nav--active') ) {
+			if ( $('.header').hasClass('header--catalog') ) {
+				$('.header').removeClass('header--catalog');
+			} 
+
+			
+
+			if ( $('.header__nav').hasClass('header__nav--active') ) {
 				$('.header__svg--two').attr('src', 'image/menu-close.webp');
 			} else {
 				$('.header__svg--two').attr('src', 'image/menu.png');

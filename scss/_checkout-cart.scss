@@ -1,11 +1,135 @@
 .checkout-cart {
     color: $fonts-gray;
-    a {
-        color: $fonts-gray;
+
+
+    &__inner {
+        width: 100%;
+        margin: 0 auto;
     }
-    img {
+
+
+    &__wrapper {
+        display: flex;
+        position: relative;
+        margin-bottom: 20px;
+        border-bottom: 1px solid #eee;
+        padding: 15px 0;
+    }
+
+    &__btn-del {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        background: none;
+        border: none;
+
+    }
+
+    &__image-wrapper {
+       
+        display: block;
+    }
+
+    &__img {
         width: 100%;
         max-width: 150px;
+        margin-right: 20px;
+    }
+
+    &__title-wrapper {
+        display: flex;
+
+        span {
+            margin-right: 10px;
+        }
+    }
+
+    &__title {
+        text-transform: uppercase;
+        letter-spacing: .1em;
+        line-height: 17px;
+        max-width: 380px;
+        display: block;
+        color: $fonts-gray!important;
+    }
+
+    // .__left
+
+    &__left {
+        width: 100%;
+        padding: 0 20px;
+    }
+
+    // .__left-model
+    &__left-model {
+        padding-top: 5px;
+        color: #828282;
+        font-size: 12px;
+        line-height: 14px;
+    }
+
+    &__options-wrapper {
+        width: 100%;
+        display: flex;
+        padding: 15px 0;
+
+        @media screen and (max-width:768px){
+            flex-direction: column;
+        }
+
+    }
+
+    // .checkout-cart__item
+
+    &__item + &__item {
+        margin-left: 30px;
+        @media screen and (max-width:768px) {
+            margin-left: 0;
+        }
+    }
+
+
+    &__qiantity {
+        width: 100%;
+        max-width: 300px;
+
+    }
+
+    &__options {
+
+
+    }
+
+    &__options-title {
+        color: #828282;
+        font-size: 14px;
+        line-height: 17px;
+        padding: 24px 0 10px
+    }
+
+
+    a {
+        color: #ffffff;
+    }
+   
+
+    input {
+        border-radius: 0;
+    }
+
+    .panel-default {
+        border-radius: 0;
+        label {
+            margin-right: 5px;
+        }
+    }
+    .panel-heading {
+        color: $fonts-gray;
+        background-color: #ffffff;
+        a {
+            color: $fonts-gray;
+        }
+        
     }
 
     
