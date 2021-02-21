@@ -4,24 +4,32 @@
     width: 100%;
     display: flex;
     justify-content: space-between;
-    margin-bottom: 40px;
+    margin-bottom: 80px;
+    flex-wrap: wrap;
     // .product-custom__item
+
+    @media screen and (max-width:768px){
+        flex-direction: column;
+    }
 
     &__item {
         width: 100%;
         text-align: center;
+        max-width: 377px;
+        height: 471px;
+        // padding: 20px;
+        margin: 0 auto 80px;
     }
-    &__item + &__item {
-        margin-left: 20px;
-    }
+    
 
     // .product-custom__image-row
 
     &__image-row {
         width: 100%;
-        height: auto;
-        overflow: hidden;
+        height: 100%;
         
+        overflow: hidden;
+        background-color: #000000;
         position: relative;
         &:hover .product-custom__button-cart {
             opacity: 100;
@@ -33,17 +41,24 @@
     &__image-link {
         display: block;
         width: 100%;
-        height: auto;
+        height: 100%;
         margin: 0;
         padding: 0;
+        position: relative;
+        overflow: hidden;
     }
     // .product-custom__button-cart
     // .product-custom__image
 
     &__image {
-        width: 100%;
+        width: 105%;
         object-fit: cover;
         height: 100%;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        
     }
     &__button-cart {
         outline: none;
@@ -60,22 +75,29 @@
         z-index: 3;
         opacity: 0;
         transition: $transition;
+        @media screen and (max-width:1366px){
+            opacity: 100%; 
+        }
     }
 
     // .product-custom__caption
 
     &__caption {
+        margin-top: 20px;
         font-size: 12px;
+        display: block;
+        
     }
 
     // .product-custom__link
 
     &__link {
-        text-decoration: none;
+        
         color: $fonts-gray;
         transition: $transition;
         text-transform: uppercase;
         line-height: 1.2em;
+        display: block;
         
 
         &:hover {
@@ -110,6 +132,7 @@
     &__price-old {
         margin-left: 15px;
         text-decoration: line-through;
+        color: #828282;
     }
 
     // .product-custom__price-tax
@@ -137,6 +160,25 @@
             color: $fonts-gray;
         }
 
+    }
+
+    input, select {
+        border-radius: 0!important;
+        outline: none;
+        box-shadow: none!important;
+        
+    
+        &:focus {
+            outline: none!important;
+            box-shadow: none;
+            border: 1px solid #ccc!important;
+        }
+        &:hover {
+            outline: none;
+            box-shadow: none!important;
+            border: 1px solid #ccc!important;
+    
+        }
     }
 }
 

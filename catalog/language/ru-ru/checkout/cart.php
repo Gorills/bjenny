@@ -4,6 +4,7 @@
 
 // Heading
 $_['heading_title']    							= 'Корзина покупок';
+$_['heading_art']    							= 'Артикул';
 
 // Text
 $_['text_success']    							= 'Товар <a href="%s">%s</a> добавлен в <a href="%s">корзину покупок</a>!';
@@ -34,7 +35,7 @@ $_['column_image']          					= 'Изображение';
 $_['column_name']           					= 'Название товара';
 $_['column_model']          					= 'Код товара';
 $_['column_quantity']       					= 'Количество';
-$_['column_price']          					= 'Цена за единицу товара';
+$_['column_price']          					= 'Цена за шт.';
 $_['column_total']          					= 'Всего';
 
 // Error

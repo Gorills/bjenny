@@ -5,7 +5,9 @@
   <div class="new__inner">
     <p class="new__button btn-white">New</p>
   </div>
+
   <img src="image/catalog/background/bg-desc.jpg" alt="" class="new__img">
+  <img src="image/catalog/background/bg-mobile.jpg" alt="" class="new__img-mobile">
 </a>
 
 
@@ -36,20 +38,15 @@
   </div>
 </div>
 
-<script type="text/javascript"><!--
+<a href="#" class="new">
+  <div class="new__inner">
+    <p class="new__button btn-white">New</p>
+  </div>
+  <img src="image/catalog/background/bg-sale.jpg" alt="" class="new__img">
+</a>
 
-$('#carousel{{ module }}').swiper({
-	mode: 'horizontal',
-	slidesPerView: 4,
-	
-	paginationClickable: true,
-	nextButton: '.collection__button-next',
-  prevButton: '.collection__button-prev', 
-	autoplay: false,
-	loop: false,
-  spaceBetween: 20
-});
---></script>
+
+
 
 
 <div id="common-home">
@@ -69,5 +66,48 @@ $('#carousel{{ module }}').swiper({
     {{ column_right }}</div>
 </div>
 
+
+
+
+
+
+<script type="text/javascript"><!--
+
+
+
+function windowSize(){
+    if( $(window).width()  >= 768 ) {
+      $('#carousel{{ module }}').swiper({
+      mode: 'horizontal',
+      slidesPerView: 4,
+      
+      paginationClickable: true,
+      nextButton: '.collection__button-next',
+      prevButton: '.collection__button-prev', 
+      autoplay: false,
+      loop: false,
+      spaceBetween: 20
+    });
+    } else {  
+     $('#carousel{{ module }}').swiper({
+      mode: 'horizontal',
+      slidesPerView: 2,
+      
+      paginationClickable: true,
+      nextButton: '.collection__button-next',
+      prevButton: '.collection__button-prev', 
+      autoplay: false,
+      loop: false,
+      spaceBetween: 20
+    });
+
+    }
+}
+
+// или "два-в-одном", вместо двух последних строк:
+$(window).on('load resize',windowSize);
+
+
+--></script>
 
 {{ footer }}

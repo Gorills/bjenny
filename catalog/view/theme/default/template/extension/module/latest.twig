@@ -9,12 +9,15 @@
     
 
       <div class="product-custom__item">
+
         <div class="product-custom__image-row">
+
           <a class="product-custom__image-link" href="{{ product.href }}">
             <img src="{{ product.thumb }}" alt="{{ product.name }}" title="{{ product.name }}" class="product-custom__image" />
           </a>
+          
           <button class="product-custom__button-cart" type="button" onclick="cart.add('{{ product.product_id }}');">
-            <span class="hidden-xs hidden-sm hidden-md">{{ button_cart }}</span>
+            <span>{{ button_cart }}</span>
           </button>
 
           <div class="product-custom__button-group">
@@ -29,6 +32,7 @@
           </div>
 
         </div>
+
         <div class="product-custom__caption">
           <a class="product-custom__link" href="{{ product.href }}">
             <h4 class="product-custom__caption-title">
@@ -75,7 +79,8 @@
         
       </div>
    
-  
+    
   {% endfor %} 
+    
   </div>
 

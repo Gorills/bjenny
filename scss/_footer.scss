@@ -1,0 +1,17 @@
+.footer {
+    padding: 20px 0;
+
+    @media screen and (max-width:768px){
+        text-align: center;
+    }
+
+    a {
+
+        color: $fonts-gray;
+        transition: $transition;
+        &:hover {
+            color: #000000;
+        }
+
+    }
+}

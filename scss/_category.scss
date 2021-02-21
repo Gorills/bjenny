@@ -1,0 +1,52 @@
+.category-title {
+    font-size: 16px;
+    line-height: 1.3em;
+    margin-bottom: 40px;
+    color: $fonts-gray;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: .1em;
+}
+
+.compare-custom {
+
+    text-transform: uppercase;
+    a {
+        color: $fonts-gray;
+        transition: $transition;
+        &:hover {
+            color: #000000;
+            text-decoration: none;
+        }
+    }
+    
+}
+
+.label-custom {
+    border: none;
+    background-color: #000;
+    color: #ffffff;
+}
+
+// extention/category
+.list-group {
+    text-transform: uppercase;
+    border: none;
+
+
+    .list-group-item {
+        border: none;
+        color: $fonts-gray;
+        transition: $transition;
+        &:hover {
+            background: none;
+            color: $bgc-dark;
+        }
+
+    }
+    .active {
+        background: none;
+        border: none;
+        color: $bgc-dark;
+    }
+}
