@@ -20,3 +20,4 @@ $_['text_catalog']        = 'Каталог';
 $_['text_new']        = 'New';
 $_['text_soon']        = 'Скоро';
 $_['text_sale']        = 'Скидки';
+$_['text_poshiv']        = 'Инд. пошив';
