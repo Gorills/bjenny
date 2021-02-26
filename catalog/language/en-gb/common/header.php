@@ -18,3 +18,4 @@ $_['text_catalog']        = 'Catalog';
 $_['text_new']        = 'New';
 $_['text_soon']        = 'Soon';
 $_['text_sale']        = 'Sale';
+$_['text_poshiv']        = 'Ind. tailoring';

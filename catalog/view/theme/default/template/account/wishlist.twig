@@ -1,6 +1,6 @@
 {{ header }}
 <div class="margin-top"></div>
-<div id="account-wishlist" class="container">
+<div id="account-wishlist" class="container-custom">
   <ul class="breadcrumb">
     {% for breadcrumb in breadcrumbs %}
     <li><a href="{{ breadcrumb.href }}">{{ breadcrumb.text }}</a></li>
@@ -11,6 +11,7 @@
     <button type="button" class="close" data-dismiss="alert">&times;</button>
   </div>
   {% endif %}
+
   <div class="row">{{ column_left }}
     {% if column_left and column_right %}
     {% set class = 'col-sm-6' %}
@@ -21,7 +22,11 @@
     {% endif %}
     <div id="content" class="{{ class }}">{{ content_top }}
       <h2>{{ heading_title }}</h2>
+
+
       {% if products %}
+
+
       <div class="table-responsive">
         <table class="table table-bordered table-hover">
           <thead>
@@ -55,6 +60,8 @@
           
         </table>
       </div>
+
+      
       {% else %}
       <p>{{ text_empty }}</p>
       {% endif %}
