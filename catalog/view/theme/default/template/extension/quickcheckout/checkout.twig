@@ -1,4 +1,7 @@
 {{ header }}
+
+<div class="margin-top"></div>
+
 <div class="container">
   <ul class="breadcrumb">
     {% for breadcrumb in breadcrumbs %} 
@@ -36,7 +39,7 @@
 	  <div id="quickcheckout-countdown"></div>
 
 	  <div id="quickcheckoutconfirm">
-		<div id="quickcheckout-disable">
+		<div id="quickcheckout-disable" class="quickcheckout">
 		  {% if not logged and login_module %} 
 		  <div class="quickcheckoutmid" id="login-box">
 			<div id="checkout">

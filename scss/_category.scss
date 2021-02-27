@@ -8,6 +8,35 @@
     letter-spacing: .1em;
 }
 
+.category-sort {
+    display: flex;
+    @media screen and (max-width:998px){
+        flex-direction: column;
+    }
+
+    &__item {
+        width: 100%;
+
+    }
+    &__item + &__item {
+        margin-left: 10px;
+        @media screen and (max-width:998px){
+            margin-left: 0;
+        }
+    }
+
+    input, select {
+        border-radius: 0!important;
+        box-shadow: none!important;
+        &:hover {
+            border: 1px solid #ccc;
+        }
+        &:focus {
+            border: 1px solid #ccc;
+        }
+    }
+}
+
 .compare-custom {
 
     text-transform: uppercase;

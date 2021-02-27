@@ -1,17 +1,138 @@
-.footer {
-    padding: 40px 0;
 
-    @media screen and (max-width:768px){
-        text-align: center;
+.footer {
+    width: 100%;
+    margin: 20px auto 0; 
+
+    &__border {
+        border-top: 1px solid #e0e0e0;
+        border-bottom: 1px solid #e0e0e0;
+    }
+    // .footer__inner
+
+    &__inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        
+        padding: 30px 0;
+
+        @media screen and (max-width:768px) {
+            flex-direction: column;
+        }
     }
 
-    a {
+    // .footer__nav
 
+    &__nav {
+        @media screen and (max-width:768px) {
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+        }
+    }
+
+    // .footer__link
+
+    &__link {
         color: $fonts-gray;
         transition: $transition;
+        font-size: 13px;
+        line-height: 16px;
         &:hover {
             color: #000000;
         }
+    }
+    &__link + &__link {
+        margin-left: 15px;
+        @media screen and (max-width:768px) {
+            margin-left: 0;
+            margin-top: 15px;
+        }
+    }
+
+    // .footer__contacts
+
+    &__contacts {
+        color: $fonts-gray;
+        transition: $transition;
+        @media screen and (max-width:768px) {
+            margin-top: 15px;
+        }
+        &:hover {
+            color: #000000;
+        }
+
+    }
+
+    // .footer__bottom
+
+    &__bottom {
+        padding: 20px 0;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        @media screen and (max-width:768px) {
+            flex-direction: column;
+        }
+    }
+
+    // .footer__date
+
+    &__date {
+        display: flex;
+        align-items: center;
+
+    }
+
+    // .footer__text
+
+    &__text {
+        margin: 0 20px 0 0;
+    }
+
+    // .footer__logo
+
+    &__logo {
+        width: 40px;
+        height: 40px;
+    }
+
+    // .footer__agreement
+
+    &__agreement {
+        color: #000000;
+        transition: $transition;
+        font-size: 12px;
+        @media screen and (max-width:768px) {
+            margin: 20px 0;
+        }
+
+        &:hover {
+            color: $fonts-gray;
+        }
+    }
+
+    // .footer__powered
+
+    &__powered {
+        display: flex;
+    }
+
+    // .footer__powered-text
+
+    &__powered-text {
+    }
+
+    // .footer__powered-linl
+
+    &__powered-link {
+       margin-left: 8px;
+       font-weight: 700;
+       color: $fonts-gray;
+       transition: $transition;
+       &:hover {
+           color: #000000;
+       }
 
     }
 }

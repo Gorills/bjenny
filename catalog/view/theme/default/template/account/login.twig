@@ -1,6 +1,6 @@
 {{ header }}
 <div class="margin-top"></div>
-<div id="account-login" class="container">
+<div id="account-login" class="container-custom">
   <ul class="breadcrumb">
     {% for breadcrumb in breadcrumbs %}
     <li><a href="{{ breadcrumb.href }}">{{ breadcrumb.text }}</a></li>
@@ -21,15 +21,22 @@
     {% set class = 'col-sm-12' %}
     {% endif %}
     <div id="content" class="{{ class }}">{{ content_top }}
-      <div class="row">
-        <div class="col-sm-6">
+
+
+
+      <div class="login">
+        <div class="login__item">
+
           <div class="well">
             <h2>{{ text_new_customer }}</h2>
             <p><strong>{{ text_register }}</strong></p>
             <p>{{ text_register_account }}</p>
-            <a href="{{ register }}" class="btn btn-primary">{{ button_continue }}</a></div>
+            <a href="{{ register }}" class="btn btn-primary">{{ button_continue }}</a>
+          </div>
         </div>
-        <div class="col-sm-6">
+
+        <div class="login__item">
+
           <div class="well">
             <h2>{{ text_returning_customer }}</h2>
             <p><strong>{{ text_i_am_returning_customer }}</strong></p>
@@ -42,7 +49,7 @@
                 <label class="control-label" for="input-password">{{ entry_password }}</label>
                 <input type="password" name="password" value="{{ password }}" placeholder="{{ entry_password }}" id="input-password" class="form-control" />
                 <a href="{{ forgotten }}">{{ text_forgotten }}</a></div>
-              <input type="submit" value="{{ button_login }}" class="btn btn-primary" />
+              <input type="submit" value="{{ button_login }}" class="btn" />
               {% if redirect %}
               <input type="hidden" name="redirect" value="{{ redirect }}" />
               {% endif %}

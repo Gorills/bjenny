@@ -113,11 +113,13 @@ function windowSize(){
 			$('.header__dropdown').removeClass('header__dropdown--active');
 			$('.header').removeClass('header--menu');
 			$('.header__menu').removeClass('header__menu--active');
-			$('.header').addClass('header--catalog');
+			$('.header').toggleClass('header--catalog');
 		});
+
 		$('.search-custom').mouseleave(function(e){
 			e.preventDefault();
 			$('.search-custom').removeClass('search-custom--active');
+			$('.header').removeClass('header--catalog');
 		});
 
 	 } else {
