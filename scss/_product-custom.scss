@@ -180,5 +180,16 @@
     
         }
     }
+
+    &__related {
+        text-align: center;
+        font-size: 14px;
+        line-height: 17px;
+        padding: 2em 0;
+        font-weight: 400;
+        color: $fonts-gray;
+        text-transform: uppercase;
+        letter-spacing: .1em;
+    }
 }
 

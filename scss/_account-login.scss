@@ -1,0 +1,48 @@
+// login, edit, 
+
+
+.login {
+
+
+    &__item {
+
+        .well {
+
+            border-radius: 0;
+            background: none;
+            border: none;
+        }
+
+        input {
+            border-radius: 0;
+            box-shadow: none!important;
+            border: 1px solid #ccc!important;
+            
+            background-color: #fff!important;
+        }
+    }
+}
+.edit-custom {
+
+    &__wrap {
+        
+    }
+
+    .form-horizontal {
+        width: 100%;
+    }
+
+    label {
+        padding-left: 10px;
+    }
+    input {
+        border-radius: 0;
+        box-shadow: none!important;
+        border: 1px solid #ccc!important;
+        
+        background-color: #fff!important;
+    }
+    .col-sm-10 {
+        // margin-right: 10px;
+    }
+}

@@ -63,6 +63,13 @@
         position: relative;
         z-index: 22;
     }
+
+    // .__mobile-search
+    &__mobile-search {
+        color: #ffffff;
+        margin: 0 10px;
+    }
+
     // .header__logo
 
     &__logo {
@@ -126,6 +133,7 @@
     }
     // .header__item
     &__item {
+        cursor: pointer;
         display: inline-block;
         text-transform: uppercase;
         @media screen and (max-width:768px) {

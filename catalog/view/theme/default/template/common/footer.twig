@@ -1,47 +1,47 @@
+
+
 <footer class="footer">
-  <div class="container-custom">
-    <div class="row">
-      {% if informations %}
-      <div class="col-sm-3">
-        {# <h5>{{ text_information }}</h5> #}
-        <ul class="list-unstyled">
-         {% for information in informations %}
-          <li><a href="{{ information.href }}">{{ information.title }}</a></li>
+  <div class="footer__border">
+    <div class="container-custom">
+      <div class="footer__inner">
+        <nav class="footer__nav">
+          {% for information in informations %}
+          <a href="{{ information.href }}" class="footer__link">{{ information.title }}</a>
           {% endfor %}
-        </ul>
-      </div>
-      {% endif %}
-      <div class="col-sm-3">
-        {# <h5>{{ text_service }}</h5> #}
-        <ul class="list-unstyled">
-          <li><a href="{{ contact }}">{{ text_contact }}</a></li>
-          <li><a href="{{ return }}">{{ text_return }}</a></li>
-          <li><a href="{{ sitemap }}">{{ text_sitemap }}</a></li>
-        </ul>
-      </div>
-      <div class="col-sm-3">
-        {# <h5>{{ text_extra }}</h5> #}
-        <ul class="list-unstyled">
-          {# <li><a href="{{ manufacturer }}">{{ text_manufacturer }}</a></li> #}
-          <li><a href="{{ voucher }}">{{ text_voucher }}</a></li>
-          <li><a href="{{ affiliate }}">{{ text_affiliate }}</a></li>
-          <li><a href="{{ special }}">{{ text_special }}</a></li>
-        </ul>
-      </div>
-      <div class="col-sm-3">
-        {# <h5>{{ text_account }}</h5> #}
-        <ul class="list-unstyled">
-          <li><a href="{{ account }}">{{ text_account }}</a></li>
-          <li><a href="{{ order }}">{{ text_order }}</a></li>
-          <li><a href="{{ wishlist }}">{{ text_wishlist }}</a></li>
-          <li><a href="{{ newsletter }}">{{ text_newsletter }}</a></li>
-        </ul>
+          <a href="#" class="footer__link">Контакты</a>
+          <a href="#" class="footer__link">Instagram</a>
+          
+        </nav>
+
+        <a href="#" class="footer__contacts">8 (913) 879-29-00</a>
       </div>
     </div>
-  
-    {# <p>{{ powered }}</p> #}
+  </div>
+  <div class="container-custom">
+    <div class="footer__bottom">
+      <div class="footer__date">
+        <p class="footer__text">© 2021</p>
+        <img src="image/catalog/logo.png" title="{{ name }}" alt="{{ name }}" class="footer__logo">
+      </div>
+
+      <a href="/terms" class="footer__agreement">Пользовательское соглашение</a>
+
+
+      <div class="footer__powered">
+          <p class="footer__powered-text">Сделано в </p>
+          <a href="" class="footer__powered-link"> GAGARIN</a>
+      
+      </div>
+    
+    </div>
+
+
   </div>
 </footer>
+
+
+
+
 {% for script in scripts %}
 <script src="{{ script }}" type="text/javascript"></script>
 {% endfor %}
