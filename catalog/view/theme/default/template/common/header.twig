@@ -97,11 +97,11 @@
             <div class="header__dropdown-inner">
               <ul class="header__dropdown-list">
                
-                <li class="header__dropdown-item"><a href="/about_us" class="header__dropdown-link">О нас</a></li>
+                <li class="header__dropdown-item"><a href="/about_us" class="">О нас</a></li>
                 
-                <li class="header__dropdown-item"><a href="{{ contact }}" class="header__dropdown-link">{{ text_contact }}</a></li>
-                <li class="header__dropdown-item"><a href="#" class="header__dropdown-link">Оплата и доставка</a></li>
-               <li class="header__dropdown-item"><a href="#" class="header__dropdown-link">{{ text_poshiv }}</a></li>
+                <li class="header__dropdown-item"><a href="{{ contact }}" class="">{{ text_contact }}</a></li>
+                <li class="header__dropdown-item"><a href="#" class="">Оплата и доставка</a></li>
+               <li class="header__dropdown-item"><a href="#" class="">{{ text_poshiv }}</a></li>
              
               </ul>
               
@@ -110,7 +110,7 @@
           </div> 
 
         </li>
-        <li class="header__item"><a href="#" class="header__link">New</a></li>
+        <li class="header__item"><a href="index.php?route=product/new" class="header__link">New</a></li>
 
         <li class="header__item">
           <a class="header__item-drop">{{ text_catalog }}</a>
@@ -136,7 +136,7 @@
 
         <ul class="list-inline">
 
-          <li><a href="#"><i class="fa fa-search search-popup"></i></a></li>
+          <li class="header__lk-none"><a href="#"><i class="fa fa-search search-popup"></i></a></li>
 
 
           <li class="dropdown">
@@ -161,7 +161,7 @@
             </ul>
 
           </li>
-          <li>
+          <li class="header__lk-none">
             <a href="{{ wishlist }}" id="wishlist-total" title="{{ text_wishlist }}">
               <i class="fa fa-heart"></i> 
               {# <span class="hidden-xs hidden-sm hidden-md">{{ text_wishlist }}</span> #}

@@ -329,29 +329,24 @@
         align-items: center;
         @media screen and (max-width:768px){
             order: 3;
-
-
-           
-            
-
         }
         i {
             color: #ffffff;
 
         }
 
-        .list-inline {
-            @media screen and (max-width:768px){
-                li:nth-child(1) {
-                    display: none;
-                }
-                li:nth-child(3) {
-                    display: none;
-                }
-            }
-        }
+        
 
     }
+
+    &__lk-none {
+        @media screen and (max-width:768px){
+           
+            display: none!important;
+        
+        }
+    }
+
 }
 
 

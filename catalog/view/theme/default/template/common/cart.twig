@@ -41,7 +41,7 @@
           <td class="text-left">{{ voucher.description }}</td>
           <td class="text-right">x&nbsp;1</td>
           <td class="text-right">{{ voucher.amount }}</td>
-          <td class="text-center text-danger"><button type="button" onclick="voucher.remove('{{ voucher.key }}');" title="{{ button_remove }}" class="btn btn-danger btn-xs"><i class="fa fa-times"></i></button></td>
+          <td class="text-right text-danger"><button type="button" onclick="voucher.remove('{{ voucher.key }}');" title="{{ button_remove }}" class="btn btn-danger btn-xs"><i class="fa fa-times"></i></button></td>
         </tr>
         {% endfor %}
       </table>

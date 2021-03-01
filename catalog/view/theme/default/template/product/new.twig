@@ -1,26 +1,67 @@
 {{ header }}
-<div id="information-information" class="container">
+
+<div class="margin-top"></div>
+
+<div id="information-information" class="container-custom">
     <ul class="breadcrumb">
+
+
+    
         {% for breadcrumb in breadcrumbs %}
             <li><a href="{{ breadcrumb.href }}">{{ breadcrumb.text }}</a></li>
         {% endfor %}
     </ul>
-    <div class="row">{{ column_left }}
-        {% if column_left and column_right %}
-            {% set class = 'col-sm-6' %}
-        {% elseif column_left or column_right %}
-            {% set class = 'col-sm-9' %}
-        {% else %}
-            {% set class = 'col-sm-12' %}
-        {% endif %}
-        <div id="content" class="{{ class }}">{{ content_top }}
-            <h1>{{ heading_title }}</h1>
-            <ul>
-                {% for product in products %}
-                    <li>{{ product.name }}</li>
-                {% endfor %}
-            </ul>
-            {{ content_bottom }}</div>
-        {{ column_right }}</div>
+    
+            <h1>New</h1>
+    <div class="product-custom"> 
+      {% for product in products %}
+
+    
+
+      <div class="product-custom__item">
+
+        <div class="product-custom__image-row">
+
+          <a class="product-custom__image-link" href="{{ product.href }}">
+            <img src="{{ product.thumb }}" alt="{{ product.name }}" title="{{ product.name }}" class="product-custom__image" />
+          </a>
+          
+          <button class="product-custom__button-cart" type="button" onclick="cart.add('{{ product.product_id }}');">
+            <span>{{ button_cart }}</span>
+          </button>
+
+        
+        </div>
+
+        <div class="product-custom__caption">
+          <a class="product-custom__link" href="{{ product.href }}">
+            <h4 class="product-custom__caption-title">
+              {{ product.name }}
+            </h4>
+          </a>
+      
+          {% if product.price %}
+
+          <p class="product-custom__price"> 
+              {% if not product.special %}
+
+              {{ product.price }}
+
+              {% else %} <span class="product-custom__price-new">{{ product.special }}</span> 
+              <span class="product-custom__price-old">{{ product.price }}</span> 
+              
+              {% endif %}
+              {% if product.tax %} <span class="product-custom__price-tax">{{ text_tax }} {{ product.tax }}</span> 
+              
+              {% endif %} </p>
+          {% endif %} 
+          </div>
+        
+      </div>
+   
+    
+  {% endfor %} 
+
 </div>
+            
 {{ footer }}
