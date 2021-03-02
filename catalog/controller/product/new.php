@@ -67,12 +67,6 @@ class ControllerProductNew extends Controller {
                 $tax = false;
             }
 
-            if ($this->config->get('config_review_status')) {
-                $rating = (int)$result['rating'];
-            } else {
-                $rating = false;
-            }
-
             $data['products'][] = array(
                 'product_id'  => $result['product_id'],
                 'thumb'       => $image,
@@ -83,11 +77,10 @@ class ControllerProductNew extends Controller {
                 'tax'         => $tax,
                 'minimum'     => $result['minimum'] > 0 ? $result['minimum'] : 1,
                 'rating'      => $result['rating'],
-                'href'        => $this->url->link('product/product', 'path=' . $this->request->get['path'] . '&product_id=' . $result['product_id'])
+                'href'        => $this->url->link('product/product', 'product_id=' . $result['product_id'])
             );
         }
 
-//        echo('<pre>'.print_r($data['products'], true).'</pre>');
         // Load the template file and show output
         $this->response->setOutput($this->load->view('product/new', $data));
     }
