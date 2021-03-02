@@ -178,18 +178,18 @@
       {{ content_bottom }}</div>
     {{ column_right }}</div>
 
-{% if thumb or description %}
-      <div class="row"> {% if thumb %}
-        {# <div class="col-sm-2">
-          <img src="{{ thumb }}" alt="{{ heading_title }}" title="{{ heading_title }}" class="img-thumbnail" />
-        </div> #}
-        {% endif %}
-        {% if description %}
-          <div class="col-sm-10">{{ description }}</div>
-        {% endif %}
-      </div>
-      <hr>
-{% endif %}
+  {% if thumb or description %}
+        <div class="row"> {% if thumb %}
+          {# <div class="col-sm-2">
+            <img src="{{ thumb }}" alt="{{ heading_title }}" title="{{ heading_title }}" class="img-thumbnail" />
+          </div> #}
+          {% endif %}
+          {% if description %}
+            <div class="col-sm-10">{{ description }}</div>
+          {% endif %}
+        </div>
+        <hr>
+  {% endif %}
 
 
 
