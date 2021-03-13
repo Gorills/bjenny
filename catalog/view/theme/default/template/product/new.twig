@@ -4,12 +4,10 @@
 
 <div id="information-information" class="container-custom">
     <ul class="breadcrumb">
-
-
+        <li><a href="/"><i class="fa fa-home"></i></a></li>
+        <li><a href="index.php?route=product/new">New</a></li>
     
-        {% for breadcrumb in breadcrumbs %}
-            <li><a href="{{ breadcrumb.href }}">{{ breadcrumb.text }}</a></li>
-        {% endfor %}
+      
     </ul>
     
             <h1>New</h1>
@@ -30,7 +28,6 @@
             <span>{{ button_cart }}</span>
           </button>
 
-        
         </div>
 
         <div class="product-custom__caption">

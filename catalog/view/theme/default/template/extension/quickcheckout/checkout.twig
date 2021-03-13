@@ -40,7 +40,14 @@
 
 	  <div id="quickcheckoutconfirm">
 		<div id="quickcheckout-disable" class="quickcheckout">
+
+			<div>
+				<p>Вы можете <b><a href="http://localhost/shop/index.php?route=account/login">Войти</a></b>, если у Вас уже есть аккаунт. Для того, чтобы создать учетную запись, достаточно 
+				установить флажок при оформлении заказа.
+				</p>
+			</div>
 		  {% if not logged and login_module %} 
+
 		  <div class="quickcheckoutmid" id="login-box">
 			<div id="checkout">
 			  <div class="quickcheckout-heading"><i class="fa fa-sign-in"></i> {{ text_checkout_option }}</div>
@@ -61,6 +68,11 @@
 			</div>
 			{% endif %} 
 		  </div>
+
+
+
+
+
 		  <div class="quickcheckoutright">
 			{% if shipping_required %} 
 			<div id="shipping-method"{{ not shipping_module ? ' style="display:none;"' }}>
