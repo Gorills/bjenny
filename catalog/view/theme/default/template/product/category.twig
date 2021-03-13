@@ -105,15 +105,19 @@
       <div class="product-custom"> 
       {% for product in products %}
 
-    
-
       <div class="product-custom__item">
 
         <div class="product-custom__image-row">
 
           <a class="product-custom__image-link" href="{{ product.href }}">
             <img src="{{ product.thumb }}" alt="{{ product.name }}" title="{{ product.name }}" class="product-custom__image" />
+            <img src="image/catalog/43.jpg" alt="{{ product.name }}" title="{{ product.name }}" class="product-custom__image-two" />
           </a>
+
+          <div class="product-custom__button-size">
+              <p class="product-custom__button-size-text">S</p>
+              <p class="product-custom__button-size-text">M</p>
+          </div>
           
           <button class="product-custom__button-cart" type="button" onclick="cart.add('{{ product.product_id }}');">
             <span>{{ button_cart }}</span>
@@ -141,21 +145,35 @@
       
           {% if product.price %}
 
-          <p class="product-custom__price"> 
-              {% if not product.special %}
+          <div class="product-custom__price-wrapper">
 
-              {{ product.price }}
+            <p class="product-custom__price"> 
+                {% if not product.special %}
 
-              {% else %} <span class="product-custom__price-new">{{ product.special }}</span> 
-              <span class="product-custom__price-old">{{ product.price }}</span> 
+                {{ product.price }}
+
+                {% else %} 
+                <span class="product-custom__price-new">{{ product.special }}</span> 
+                <span class="product-custom__price-old">{{ product.price }}</span> 
+                
+                {% endif %}
+                {% if product.tax %} 
+                <span class="product-custom__price-tax">{{ text_tax }} {{ product.tax }}</span> 
+                
+                {% endif %} 
+                
+            </p>
+            {% endif %} 
+            <div class="product-custom__price-color">
+              <div style="background-color:#333333;" class="product-custom__price-item">
               
-              {% endif %}
-              {% if product.tax %} <span class="product-custom__price-tax">{{ text_tax }} {{ product.tax }}</span> 
+              </div>
+              <div style="background-color: red;" class="product-custom__price-item">
               
-              {% endif %} </p>
-          {% endif %} 
+              </div>
+            </div>
           </div>
-        
+        </div>
       </div>
    
     
@@ -188,7 +206,7 @@
             <div class="col-sm-10">{{ description }}</div>
           {% endif %}
         </div>
-        <hr>
+      
   {% endif %}
 
 

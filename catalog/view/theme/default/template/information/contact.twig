@@ -15,31 +15,31 @@
     {% set class = 'col-sm-12' %}
     {% endif %}
     <div id="content" class="{{ class }}">{{ content_top }}
-      <h1>{{ heading_title }}</h1>
-      <h3>{{ text_location }}</h3>
+      {# <h1>{{ heading_title }}</h1> #}
+      {# <h3>{{ text_location }}</h3> #}
       <div class="panel panel-default">
         <div class="panel-body">
-          <div class="row">
+          <div class="row" style='display:flex;justify-content:space-between;'>
             {% if image %}
             <div class="col-sm-3"><img src="{{ image }}" alt="{{ store }}" title="{{ store }}" class="img-thumbnail" /></div>
             {% endif %}
-            <div class="col-sm-3"><strong>{{ store }}</strong><br />
-              <address>
+            {# <div class="col-sm-3"><strong>{{ store }}</strong><br /> #}
+              {# <address>
               {{ address }}
-              </address>
-              {% if geocode %}
+              </address> #}
+              {# {% if geocode %}
               <a href="https://maps.google.com/maps?q={{ geocode|url_encode }}&hl={{ geocode_hl }}&t=m&z=15" target="_blank" class="btn btn-info"><i class="fa fa-map-marker"></i> {{ button_map }}</a>
               {% endif %}
-            </div>
+            </div> #}
             <div class="col-sm-3"><strong>{{ text_telephone }}</strong><br>
               {{ telephone }}<br />
               <br />
-              {% if fax %}
+              {# {% if fax %}
               <strong>{{ text_fax }}</strong><br>
               {{ fax }}
-              {% endif %}
+              {% endif %} #}
             </div>
-            <div class="col-sm-3">
+            {# <div class="col-sm-3">
               {% if open %}
               <strong>{{ text_open }}</strong><br />
               {{ open }}<br />
@@ -49,7 +49,7 @@
               <strong>{{ text_comment }}</strong><br />
               {{ comment }}
               {% endif %}
-            </div>
+            </div> #}
           </div>
         </div>
       </div>

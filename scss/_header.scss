@@ -180,6 +180,9 @@
         }
         &--fixed {
             top: 50px;
+            @media screen and (max-width:768px) {
+                top: 0;
+            }
         }
     }
 
@@ -205,7 +208,7 @@
         list-style: none;
         padding: 0;
         margin: 0;
-        columns: 2;
+        columns: 1;
         @media screen and (max-width:768px) {
             display: block;
             columns: 1;
@@ -218,10 +221,12 @@
     // .header__dropdown-item
 
     &__dropdown-item {
+        display: inline-block;
         padding: 10px;
         @media screen and (max-width:768px) {
             padding: 20px 0;
             border-top: 1px solid #ffffff;
+            display: block;
             
 
 
@@ -275,7 +280,7 @@
         list-style: none;
         padding: 0;
         margin: 0;
-        columns: 2;
+        
         @media screen and (max-width:768px){
             columns: 1;
             width: 100%;
@@ -289,6 +294,7 @@
     &__menu-item {
         text-transform: none;
         padding: 10px;
+        display: inline-block;
         @media screen and (max-width:768px){
             padding: 20px 0;
             border-top: 1px solid #fff;

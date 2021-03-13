@@ -68,24 +68,6 @@
             {% endif %}
           </ul>
           {% endif %}
-
-          <script>
-
-            $('#thumbnails__left').swiper({
-                mode: 'horizontal',
-                slidesPerView: 4,
-                
-                paginationClickable: true,
-                nextButton: '.collection__button-next',
-                prevButton: '.collection__button-prev', 
-                autoplay: false,
-                loop: false,
-                spaceBetween: 20
-              });
-
-
-          });
-          </script>
           
           {# <ul class="nav nav-tabs">
             <li class="active"><a href="#tab-description" data-toggle="tab">{{ tab_description }}</a></li>
@@ -240,21 +222,9 @@
               </select>
             </div>
             {% endif %}
+
+
             {% if option.type == 'radio' %}
-            {# <div class="form-group{% if option.required %} required {% endif %}">
-              <label class="control-label">{{ option.name }}</label>
-              <div id="input-option{{ option.product_option_id }}"> {% for option_value in option.product_option_value %}
-                <div class="radio">
-                  <label>
-                    <input type="radio" name="option[{{ option.product_option_id }}]" value="{{ option_value.product_option_value_id }}" />
-                    {% if option_value.image %} <img src="{{ option_value.image }}" alt="{{ option_value.name }} {% if option_value.price %} {{ option_value.price_prefix }} {{ option_value.price }} {% endif %}" class="img-thumbnail" /> {% endif %}                  
-                    {{ option_value.name }}
-                    {% if option_value.price %}
-                    ({{ option_value.price_prefix }}{{ option_value.price }})
-                    {% endif %} </label>
-                </div>
-                {% endfor %} </div>
-            </div> #}
             <div class="form-group{% if option.required %} required {% endif %}">
             
               <label class="control-label">{{ option.name }}</label>
@@ -314,14 +284,6 @@
             </div>
             {% endif %}
   
-            {# 
-            {% if option.type == 'text' %}
-            <div class="form-group{% if option.required %} required {% endif %} product-card__text">
-              <label class="control-label" for="input-option{{ option.product_option_id }}">{{ option.name }}</label>
-              <input type="text" name="option[{{ option.product_option_id }}]" value="{{ option.value }}" placeholder="{{ option.name }}" id="input-option{{ option.product_option_id }}" class="form-control" />
-            </div>
-            {% endif %} #}
-
           
 
 
@@ -329,7 +291,24 @@
             {% if option.type == 'textarea' %}
             <div class="form-group{% if option.required %} required {% endif %} product-card__text">
               <label class="control-label" for="input-option{{ option.product_option_id }}">{{ option.name }}</label>
-              <textarea name="option[{{ option.product_option_id }}]" rows="5" placeholder="{{ option.name }}" id="input-option{{ option.product_option_id }}" class="form-control">{{ option.value }}</textarea>
+              <textarea 
+                name="option[{{ option.product_option_id }}]" 
+                rows="9" placeholder="{{ option.name }}" 
+                id="input-option{{ option.product_option_id }}" 
+                class="form-control">
+Рост:
+Ог ( обхват груди): 
+От ( обхват талии):
+Об (обхват бёдер):
+Ширина плеча: 
+Дл.ноги с внешней стороны:
+Дл. Ноги с внутренней стороны:
+Дл. Рукава :
+Дл. Штанов :</textarea>
+              <p style='margin-top:20px;margin-left:10px;'>Как правильно снимать мерки - <a style='text-decoration:underline;' href="/individual-tailoring">Индивидуальный пошив</a></p>
+              <p>* обращаем ваше внимание, что срок изготовления изделия по вашим меркам производится до 7 дней.</p>
+
+
             </div>
             {% endif %}
 
