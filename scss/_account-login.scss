@@ -1,0 +1,68 @@
+// login, edit, 
+
+
+.login {
+
+
+    &__item {
+
+        .well {
+
+            border-radius: 0;
+            background: none;
+            border: none;
+        }
+
+        input {
+            border-radius: 0;
+            box-shadow: none!important;
+            border: 1px solid #ccc!important;
+            
+            background-color: #fff!important;
+        }
+    }
+}
+.edit-custom {
+
+    &__wrap {
+        
+    }
+
+    .form-horizontal {
+        width: 100%;
+    }
+
+    label {
+        padding-left: 10px;
+    }
+    input {
+        border-radius: 0;
+        box-shadow: none!important;
+        border: 1px solid #ccc!important;
+        
+        background-color: #fff!important;
+    }
+    .col-sm-10 {
+        // margin-right: 10px;
+    }
+}
+
+.account-register {
+    label {
+        // margin-right: 10px;
+    }
+    input {
+        max-width: 90%;
+        margin-left: 10px;
+        @media screen and (max-width:768px) {
+            max-width: 98%;
+            margin-left: 0;
+        }
+    }
+    .form-group {
+        padding-left: 10px;
+    }
+    .radio-inline {
+        margin-left: 10px;
+    }
+}

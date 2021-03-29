@@ -19,5 +19,5 @@ $_['column_image']  = 'Изображение';
 $_['column_name']   = 'Название товара';
 $_['column_model']  = 'Код товара';
 $_['column_stock']  = 'Наличие';
-$_['column_price']  = 'Цена за единицу товара';
+$_['column_price']  = 'Цена за шт.';
 $_['column_action'] = 'Действие';

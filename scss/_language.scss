@@ -1,0 +1,39 @@
+.language {
+
+    // .language__btn-group
+
+    &__btn-group {
+        position: relative;
+        background: none;
+
+    }
+
+    // .language__dropdown-toggle
+
+    &__dropdown-toggle {
+        background: none;
+        border: none;
+        color: #fff;
+        border-radius: 0;
+        outline: none;
+    }
+
+    // .language__text
+    &__text {
+        text-transform: uppercase;
+        color: #fff;
+        
+    }
+
+    // .language__dropdown
+
+    &__dropdown {
+
+    }
+
+    // .language__btn
+
+    &__btn {
+
+    }
+}

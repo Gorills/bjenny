@@ -97,7 +97,8 @@ class Twig_Environment
         }
 
         $options = array_merge(array(
-            'debug' => false,
+            // debug = false
+            'debug' => true,
             'charset' => 'UTF-8',
             'base_template_class' => 'Twig_Template',
             'strict_variables' => false,
@@ -106,7 +107,7 @@ class Twig_Environment
             'auto_reload' => null,
             'optimizations' => -1,
         ), $options);
-
+        $this->addExtension(new Twig_Extension_Debug());
         $this->debug = (bool) $options['debug'];
         $this->charset = strtoupper($options['charset']);
         $this->baseTemplateClass = $options['base_template_class'];

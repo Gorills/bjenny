@@ -94,6 +94,8 @@ class ControllerCommonCart extends Controller {
 				$total = false;
 			}
 
+			$data['cart_count'] = $this->cart->countProducts();
+
 			$data['products'][] = array(
 				'cart_id'   => $product['cart_id'],
 				'thumb'     => $image,

@@ -1,4 +1,6 @@
 <?php
+ini_set('display_errors', 1); ini_set('og_errors', 1); error_reporting(E_ALL);
+ini_set("memory_limit", "512M");
 // Version
 define('VERSION', '3.0.2.0');
 

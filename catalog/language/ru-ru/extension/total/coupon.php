@@ -3,7 +3,7 @@
 // *	@license	GNU General Public License version 3; see LICENSE.txt
 
 // Heading
-$_['heading_title'] = 'Использовать купон для получения скидки';
+$_['heading_title'] = 'Использовать промокод';
 
 // Text
 $_['text_coupon']   = 'Купон (%s)';

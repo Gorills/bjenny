@@ -14,6 +14,8 @@ class ControllerProductCategory extends Controller {
 		
 		
 		$data['text_empty'] = $this->language->get('text_empty');
+		
+		
 
 		if (isset($this->request->get['filter'])) {
 			$filter = $this->request->get['filter'];
@@ -194,6 +196,43 @@ class ControllerProductCategory extends Controller {
 					$image = $this->model_tool_image->resize('placeholder.png', $this->config->get('theme_' . $this->config->get('config_theme') . '_image_product_width'), $this->config->get('theme_' . $this->config->get('config_theme') . '_image_product_height'));
 				}
 
+                $productImages = $this->model_catalog_product->getProductImages($result['product_id']);
+                $images = array();
+                foreach ($productImages as $result_img) {
+                    if ($result_img['image']) {
+                        $image_dop = $this->model_tool_image->resize($result['image'], $this->config->get('theme_' . $this->config->get('config_theme') . '_image_product_width'), $this->config->get('theme_' . $this->config->get('config_theme') . '_image_product_height'));
+                        $images[] = $image_dop;
+                    }
+                }
+
+                $options = array();
+                foreach ($this->model_catalog_product->getProductOptions($result['product_id']) as $option) {
+                    $product_option_value_data = array();
+
+                    foreach ($option['product_option_value'] as $option_value) {
+
+                        if (!$option_value['subtract'] || ($option_value['quantity'] > 0)) {
+                            $product_option_value_data[] = array(
+                                'product_option_value_id' => $option_value['product_option_value_id'],
+                                'option_value_id'         => $option_value['option_value_id'],
+                                'name'                    => $option_value['name'],
+                                'image'                   => $this->model_tool_image->resize($option_value['image'], 50, 50),
+                                'price_prefix'            => $option_value['price_prefix']
+                            );
+                        }
+                    }
+
+                    $options[] = array(
+                        'product_option_id'    => $option['product_option_id'],
+                        'product_option_value' => $product_option_value_data,
+                        'option_id'            => $option['option_id'],
+                        'name'                 => $option['name'],
+                        'type'                 => $option['type'],
+                        'value'                => $option['value'],
+                        'required'             => $option['required']
+                    );
+                }
+
 				if ($this->customer->isLogged() || !$this->config->get('config_customer_price')) {
 					$price = $this->currency->format($this->tax->calculate($result['price'], $result['tax_class_id'], $this->config->get('config_tax')), $this->session->data['currency']);
 				} else {
@@ -221,6 +260,8 @@ class ControllerProductCategory extends Controller {
 				$data['products'][] = array(
 					'product_id'  => $result['product_id'],
 					'thumb'       => $image,
+					'images'      => $images,
+					'options'     => $options,
 					'name'        => $result['name'],
 					'description' => utf8_substr(trim(strip_tags(html_entity_decode($result['description'], ENT_QUOTES, 'UTF-8'))), 0, $this->config->get('theme_' . $this->config->get('config_theme') . '_product_description_length')) . '..',
 					'price'       => $price,
@@ -230,8 +271,8 @@ class ControllerProductCategory extends Controller {
 					'rating'      => $result['rating'],
 					'href'        => $this->url->link('product/product', 'path=' . $this->request->get['path'] . '&product_id=' . $result['product_id'] . $url)
 				);
-			}
 
+			}
 			$url = '';
 
 			if (isset($this->request->get['filter'])) {

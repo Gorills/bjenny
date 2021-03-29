@@ -1,37 +1,75 @@
 {{ header }}
-<div id="product-product" class="container">
+
+<div class="margin-top"></div>
+<div id="product-product" class="container-custom">
   <ul class="breadcrumb">
     {% for breadcrumb in breadcrumbs %}
-    <li><a href="{{ breadcrumb.href }}">{{ breadcrumb.text }}</a></li>
+      <li><a href="{{ breadcrumb.href }}">{{ breadcrumb.text }}</a></li>
     {% endfor %}
   </ul>
-  <div class="row">{{ column_left }}
-    {% if column_left and column_right %}
+
+  {# слайдер сделать красивый #}
+
+
+  <div class="row">
+  
+    {# {{ column_left }} #}
+
+    {# {% if column_left and column_right %}
     {% set class = 'col-sm-6' %}
     {% elseif column_left or column_right %}
     {% set class = 'col-sm-9' %}
     {% else %}
     {% set class = 'col-sm-12' %}
-    {% endif %}
-    <div id="content" class="{{ class }}">{{ content_top }}
-      <div class="row"> {% if column_left or column_right %}
+    {% endif %} #}
+
+
+    <div id="content">
+      {# {{ content_top }} #}
+
+      <div class="product-card"> 
+        {# {% if column_left or column_right %}
         {% set class = 'col-sm-6' %}
         {% else %}
         {% set class = 'col-sm-8' %}
-        {% endif %}
-        <div class="{{ class }}"> {% if thumb or images %}
+        {% endif %} #}
+
+        <div class="product-card__left"> 
+
+        {# Картинки #}
+        {% if thumb or images %}
+
+        
+        {# Галерея #}
           <ul class="thumbnails">
-            {% if thumb %}
-            <li><a class="thumbnail" href="{{ popup }}" title="{{ heading_title }}"><img src="{{ thumb }}" title="{{ heading_title }}" alt="{{ heading_title }}" /></a></li>
-            {% endif %}
             {% if images %}
-            {% for image in images %}
-            <li class="image-additional"><a class="thumbnail" href="{{ image.popup }}" title="{{ heading_title }}"> <img src="{{ image.thumb }}" title="{{ heading_title }}" alt="{{ heading_title }}" /></a></li>
-            {% endfor %}
+
+            <div class="thumbnails__left" id="thumbnails__left">
+              {% for image in images %}
+              <li class="image-additional">
+                <a class="thumbnail" href="{{ image.popup }}" title="{{ heading_title }}"> 
+                  <img src="{{ image.thumb }}" title="{{ heading_title }}" alt="{{ heading_title }}" />
+                </a>
+              </li>
+              {% endfor %}
+            </div>
+            
+
+            {% if thumb %}
+            <li class="thumbnails__right">
+              <a class="thumbnail" href="{{ popup }}" title="{{ heading_title }}">
+                <img src="{{ thumb }}" title="{{ heading_title }}" alt="{{ heading_title }}" />
+              </a>
+            </li>
+            {% endif %}
+
+           
+
             {% endif %}
           </ul>
           {% endif %}
-          <ul class="nav nav-tabs">
+          
+          {# <ul class="nav nav-tabs">
             <li class="active"><a href="#tab-description" data-toggle="tab">{{ tab_description }}</a></li>
             {% if attribute_groups %}
             <li><a href="#tab-specification" data-toggle="tab">{{ tab_attribute }}</a></li>
@@ -39,8 +77,9 @@
             {% if review_status %}
             <li><a href="#tab-review" data-toggle="tab">{{ tab_review }}</a></li>
             {% endif %}
-          </ul>
-          <div class="tab-content">
+          </ul> #}
+
+          {# <div class="tab-content">
             <div class="tab-pane active" id="tab-description">{{ description }}</div>
             {% if attribute_groups %}
             <div class="tab-pane" id="tab-specification">
@@ -108,29 +147,30 @@
                 {% endif %}
               </form>
             </div>
-            {% endif %}</div>
+            {% endif %}
+          </div> #}
+          
         </div>
-        {% if column_left or column_right %}
+
+
+        {# Правая колонка #}
+        {# {% if column_left or column_right %}
         {% set class = 'col-sm-6' %}
         {% else %}
         {% set class = 'col-sm-4' %}
-        {% endif %}
-        <div class="{{ class }}">
+        {% endif %} #}
+        <div class="product-card__right">
           <div class="btn-group">
             <button type="button" data-toggle="tooltip" class="btn btn-default" title="{{ button_wishlist }}" onclick="wishlist.add('{{ product_id }}');"><i class="fa fa-heart"></i></button>
             <button type="button" data-toggle="tooltip" class="btn btn-default" title="{{ button_compare }}" onclick="compare.add('{{ product_id }}');"><i class="fa fa-exchange"></i></button>
           </div>
-          <h1>{{ heading_title }}</h1>
-          <ul class="list-unstyled">
-            {% if manufacturer %}
-            <li>{{ text_manufacturer }} <a href="{{ manufacturers }}">{{ manufacturer }}</a></li>
-            {% endif %}
-            <li>{{ text_model }} {{ model }}</li>
-            {% if reward %}
-            <li>{{ text_reward }} {{ reward }}</li>
-            {% endif %}
-            <li>{{ text_stock }} {{ stock }}</li>
-          </ul>
+
+          
+
+          <h1 class="product-card__title">{{ heading_title }}</h1>
+
+          
+
           {% if price %}
           <ul class="list-unstyled">
             {% if not special %}
@@ -151,7 +191,7 @@
             {% endif %}
             {% if discounts %}
             <li>
-              <hr>
+              {# <hr> #}
             </li>
             {% for discount in discounts %}
             <li>{{ discount.quantity }}{{ text_discount }}{{ discount.price }}</li>
@@ -161,10 +201,15 @@
           {% endif %}
           <div id="product"> {% if options %}
             <hr>
+
+
+            {# Опции #}
             <h3>{{ text_option }}</h3>
             {% for option in options %}
+
+            
             {% if option.type == 'select' %}
-            <div class="form-group{% if option.required %} required {% endif %}">
+            <div class="form-group{% if option.required %} required {% endif %} product-card__select">
               <label class="control-label" for="input-option{{ option.product_option_id }}">{{ option.name }}</label>
               <select name="option[{{ option.product_option_id }}]" id="input-option{{ option.product_option_id }}" class="form-control">
                 <option value="">{{ text_select }}</option>
@@ -177,50 +222,122 @@
               </select>
             </div>
             {% endif %}
+
+
             {% if option.type == 'radio' %}
             <div class="form-group{% if option.required %} required {% endif %}">
+            
               <label class="control-label">{{ option.name }}</label>
-              <div id="input-option{{ option.product_option_id }}"> {% for option_value in option.product_option_value %}
-                <div class="radio">
+
+              <div class="checkbox-wrapper" id="input-option{{ option.product_option_id }}"> {% for option_value in option.product_option_value %}
+                <div class="checkbox">
+
+
                   <label>
-                    <input type="radio" name="option[{{ option.product_option_id }}]" value="{{ option_value.product_option_value_id }}" />
-                    {% if option_value.image %} <img src="{{ option_value.image }}" alt="{{ option_value.name }} {% if option_value.price %} {{ option_value.price_prefix }} {{ option_value.price }} {% endif %}" class="img-thumbnail" /> {% endif %}                  
-                    {{ option_value.name }}
+                    <input type="radio" name="option[{{ option.product_option_id }}][]" value="{{ option_value.product_option_value_id }}" />
+                    {% if option_value.image %} 
+                    <img src="{{ option_value.image }}" alt="{{ option_value.name }} {% if option_value.price %} {{ option_value.price_prefix }} {{ option_value.price }} {% endif %}" class="img-thumbnail" /> 
+                    {% endif %}
+                    {# {{ option_value.name }} #}
+                    
+                    <div class="checkbox-box" style="background-color: {{ option_value.name }};">
+                    </div>
                     {% if option_value.price %}
-                    ({{ option_value.price_prefix }}{{ option_value.price }})
-                    {% endif %} </label>
+                      ({{ option_value.price_prefix }}
+                      {{ option_value.price }})
+                    {% endif %} 
+                  </label>
                 </div>
                 {% endfor %} </div>
             </div>
+
+
             {% endif %}
+
+
             {% if option.type == 'checkbox' %}
+            
             <div class="form-group{% if option.required %} required {% endif %}">
+            
               <label class="control-label">{{ option.name }}</label>
-              <div id="input-option{{ option.product_option_id }}"> {% for option_value in option.product_option_value %}
+
+              <div class="checkbox-wrapper" id="input-option{{ option.product_option_id }}"> {% for option_value in option.product_option_value %}
                 <div class="checkbox">
+
+
                   <label>
                     <input type="checkbox" name="option[{{ option.product_option_id }}][]" value="{{ option_value.product_option_value_id }}" />
-                    {% if option_value.image %} <img src="{{ option_value.image }}" alt="{{ option_value.name }} {% if option_value.price %} {{ option_value.price_prefix }} {{ option_value.price }} {% endif %}" class="img-thumbnail" /> {% endif %}
-                    {{ option_value.name }}
+                    {% if option_value.image %} 
+                    <img src="{{ option_value.image }}" alt="{{ option_value.name }} {% if option_value.price %} {{ option_value.price_prefix }} {{ option_value.price }} {% endif %}" class="img-thumbnail" /> 
+                    {% endif %}
+                    {# {{ option_value.name }} #}
+                    
+                    <div class="checkbox-box" style="background-color: {{ option_value.name }};">
+                    </div>
                     {% if option_value.price %}
-                    ({{ option_value.price_prefix }}{{ option_value.price }})
-                    {% endif %} </label>
+                      ({{ option_value.price_prefix }}
+                      {{ option_value.price }})
+                    {% endif %} 
+                  </label>
                 </div>
                 {% endfor %} </div>
             </div>
             {% endif %}
-            {% if option.type == 'text' %}
-            <div class="form-group{% if option.required %} required {% endif %}">
-              <label class="control-label" for="input-option{{ option.product_option_id }}">{{ option.name }}</label>
-              <input type="text" name="option[{{ option.product_option_id }}]" value="{{ option.value }}" placeholder="{{ option.name }}" id="input-option{{ option.product_option_id }}" class="form-control" />
-            </div>
-            {% endif %}
+  
+          
+
+
+            
             {% if option.type == 'textarea' %}
-            <div class="form-group{% if option.required %} required {% endif %}">
+            <div class="form-group{% if option.required %} required {% endif %} product-card__text">
               <label class="control-label" for="input-option{{ option.product_option_id }}">{{ option.name }}</label>
-              <textarea name="option[{{ option.product_option_id }}]" rows="5" placeholder="{{ option.name }}" id="input-option{{ option.product_option_id }}" class="form-control">{{ option.value }}</textarea>
+              <textarea 
+                name="option[{{ option.product_option_id }}]" 
+                rows="9" placeholder="{{ option.name }}" 
+                id="input-option{{ option.product_option_id }}" 
+                class="form-control">
+Рост:
+Ог ( обхват груди): 
+От ( обхват талии):
+Об (обхват бёдер):
+Ширина плеча: 
+Дл.ноги с внешней стороны:
+Дл. Ноги с внутренней стороны:
+Дл. Рукава :
+Дл. Штанов :</textarea>
+              <p style='margin-top:20px;margin-left:10px;'>Как правильно снимать мерки - <a style='text-decoration:underline;' href="/individual-tailoring">Индивидуальный пошив</a></p>
+              <p>* обращаем ваше внимание, что срок изготовления изделия по вашим меркам производится до 7 дней.</p>
+
+
             </div>
             {% endif %}
+
+              <script>
+            $(".product-card__select").change(function(){
+                var selectedC = $.trim($(this).find(':selected').text());
+                var strR = "Индивидуальный пошив";
+                var strE = "Individual tailoring";
+                
+               
+                if (selectedC == strR || selectedC == strE) {
+
+                     $('.product-card__text').addClass('product-card__text--active')
+
+                } else {
+
+                  $('.product-card__text').removeClass('product-card__text--active')
+                }
+
+                 
+
+               
+            });
+            </script>
+
+
+
+            {#
+
             {% if option.type == 'file' %}
             <div class="form-group{% if option.required %} required {% endif %}">
               <label class="control-label">{{ option.name }}</label>
@@ -257,9 +374,12 @@
                 <button type="button" class="btn btn-default"><i class="fa fa-calendar"></i></button>
                 </span></div>
             </div>
-            {% endif %}
+            {% endif %} #}
             {% endfor %}
             {% endif %}
+            
+
+            {# Хз чо #}
             {% if recurrings %}
             <hr>
             <h3>{{ text_payment_recurring }}</h3>
@@ -274,16 +394,83 @@
             </div>
             {% endif %}
             <div class="form-group">
-              <label class="control-label" for="input-quantity">{{ entry_qty }}</label>
-              <input type="text" name="quantity" value="{{ minimum }}" size="2" id="input-quantity" class="form-control" />
+              {# <label class="control-label" for="input-quantity">{{ entry_qty }}</label> #}
+
+              <input type="hidden" type="text" name="quantity" value="{{ minimum }}" size="2" id="input-quantity" class="form-control" />
               <input type="hidden" name="product_id" value="{{ product_id }}" />
               <br />
-              <button type="button" id="button-cart" data-loading-text="{{ text_loading }}" class="btn btn-primary btn-lg btn-block">{{ button_cart }}</button>
+              <button type="button" id="button-cart" data-loading-text="{{ text_loading }}" class="product-card__button">{{ button_cart }}</button>
             </div>
             {% if minimum > 1 %}
             <div class="alert alert-info"><i class="fa fa-info-circle"></i> {{ text_minimum }}</div>
             {% endif %}</div>
+
+
+
+
+            <ul class="list-unstyled">
+            {% if manufacturer %}
+            <li>{{ text_manufacturer }} <a href="{{ manufacturers }}">{{ manufacturer }}</a></li>
+            {% endif %}
+            <li>{{ text_model }} {{ model }}</li>
+            {% if reward %}
+            <li>{{ text_reward }} {{ reward }}</li>
+            {% endif %}
+            <li>{{ text_stock }} {{ stock }}</li>
+          </ul>
+
+          <p class="product-card__description">{{ description }}</p>
+
+            {# Характеристики #}
+            {% if attribute_groups %}
+            <div>
+              
+                {% for attribute_group in attribute_groups %}
+               
+                  
+                    {# {{ attribute_group.name }} #}
+               
+                
+                {% for attribute in attribute_group.attribute %}
+                      <div class="navigaonusing">
+                <div class="gaonutosal">
+                 
+                  <div class="pesontedan">
+                    <input id="pesontedan-{{ attribute.name | first}}{{ attribute.name | last}}" type="checkbox" name="pesontedans">
+                    <label for="pesontedan-{{ attribute.name | first}}{{ attribute.name | last}}">{{ attribute.name }}</label>
+                    
+                    <div class="pesontedan-content">
+
+                    {% autoescape false %}
+                      {{ attribute.text }} {# var won't be escaped #}
+                    {% endautoescape %}
+                       
+                   
+                     
+                   
+                    </div>
+                  </div>
+                  
+                </div>
+              </div>
+
+                  
+
+                  
+                
+                {% endfor %}
+                  
+                {% endfor %}
+
+          
+             
+            </div>
+            {% endif %}
+
+
+
           {% if review_status %}
+          {# 
           <div class="rating">
             <p>{% for i in 1..5 %}
               {% if rating < i %}<span class="fa fa-stack"><i class="fa fa-star-o fa-stack-1x"></i></span>{% else %}<span class="fa fa-stack"><i class="fa fa-star fa-stack-1x"></i><i class="fa fa-star-o fa-stack-1x"></i></span>{% endif %}
@@ -293,12 +480,20 @@
             <div class="addthis_toolbox addthis_default_style" data-url="{{ share }}"><a class="addthis_button_facebook_like" fb:like:layout="button_count"></a> <a class="addthis_button_tweet"></a> <a class="addthis_button_pinterest_pinit"></a> <a class="addthis_counter addthis_pill_style"></a></div>
             <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-515eeaf54693130e"></script> 
             <!-- AddThis Button END --> 
+          </div> #}
+
+          {% endif %} 
+          
           </div>
-          {% endif %} </div>
       </div>
+
       {% if products %}
-      <h3>{{ text_related }}</h3>
-      <div class="row"> {% set i = 0 %}
+
+
+
+      <h3 class="product-custom__related">{{ text_related }}</h3>
+      
+      {# <div class="row"> {% set i = 0 %}
         {% for product in products %}
         {% if column_left and column_right %}
         {% set class = 'col-xs-8 col-sm-6' %}
@@ -346,11 +541,97 @@
         {% for i in 0..tags|length %}
         {% if i < (tags|length - 1) %} <a href="{{ tags[i].href }}">{{ tags[i].tag }}</a>,
         {% else %} <a href="{{ tags[i].href }}">{{ tags[i].tag }}</a> {% endif %}
-        {% endfor %} </p>
-        {% endif %}
-      {{ content_bottom }}</div>
-    {{ column_right }}</div>
-</div>
+        {% endfor %} </p> #}
+        <div class="product-custom"> 
+      {% for product in products %}
+
+        
+
+          <div class="product-custom__item">
+
+            <div class="product-custom__image-row">
+
+              <a class="product-custom__image-link" href="{{ product.href }}">
+                <img src="{{ product.thumb }}" alt="{{ product.name }}" title="{{ product.name }}" class="product-custom__image" />
+              </a>
+              
+              <button class="product-custom__button-cart" type="button" onclick="cart.add('{{ product.product_id }}');">
+                <span>{{ button_cart }}</span>
+              </button>
+
+              <div class="product-custom__button-group">
+
+              
+                <button class="product-custom__button" type="button" data-toggle="tooltip" title="{{ button_wishlist }}" onclick="wishlist.add('{{ product.product_id }}');">
+                  <i class="fa fa-star"></i>
+                </button>
+                <button class="product-custom__button" type="button" data-toggle="tooltip" title="{{ button_compare }}" onclick="compare.add('{{ product.product_id }}');">
+                  <i class="fa fa-exchange"></i>
+                </button>
+              </div>
+
+            </div>
+
+            <div class="product-custom__caption">
+              <a class="product-custom__link" href="{{ product.href }}">
+                <h4 class="product-custom__caption-title">
+                  {{ product.name }}
+                </h4>
+              </a>
+              {# <p>{{ product.description }}</p> #}
+
+              {# {% if product.rating %}
+
+              <div class="product-custom__rating">{% for i in 1..5 %}
+
+                {% if product.rating < i %} 
+                <span class="fa fa-stack">
+                  <i class="fa fa-star-o fa-stack-2x"></i>
+                </span> 
+                {% else %} 
+                <span class="fa fa-stack">
+                  <i class="fa fa-star fa-stack-2x"></i>
+                  <i class="fa fa-star-o fa-stack-2x"></i>
+                </span> 
+                {% endif %}
+
+                {% endfor %}
+              </div>
+              {% endif %} #}
+
+              {% if product.price %}
+
+              <p class="product-custom__price"> 
+                  {% if not product.special %}
+
+                  {{ product.price }}
+
+                  {% else %} <span class="product-custom__price-new">{{ product.special }}</span> 
+                  <span class="product-custom__price-old">{{ product.price }}</span> 
+                  
+                  {% endif %}
+                  {% if product.tax %} <span class="product-custom__price-tax">{{ text_tax }} {{ product.tax }}</span> 
+                  
+                  {% endif %} </p>
+              {% endif %} 
+              </div>
+            
+          </div>
+      
+        
+      {% endfor %} 
+
+    {% endif %}
+    {{ content_bottom }}
+    </div>
+    {{ column_right }}
+    </div>
+
+
+
+  </div>
+
+
 <script type="text/javascript"><!--
 $('select[name=\'recurring_id\'], input[name="quantity"]').change(function(){
 	$.ajax({
@@ -412,7 +693,7 @@ $('#button-cart').on('click', function() {
 			if (json['success']) {
 				$('.breadcrumb').after('<div class="alert alert-success alert-dismissible">' + json['success'] + '<button type="button" class="close" data-dismiss="alert">&times;</button></div>');
 
-				$('#cart > button').html('<span id="cart-total"><i class="fa fa-shopping-cart"></i> ' + json['total'] + '</span>');
+					$('#cart > button').html('<i class="fa fa-shopping-cart"></i><span id="cart-total" class="cart-custom__count"> ' + json['count_products'] + '</span>');
 
 				$('html, body').animate({ scrollTop: 0 }, 'slow');
 
@@ -495,6 +776,10 @@ $('button[id^=\'button-upload\']').on('click', function() {
 });
 //--></script> 
 <script type="text/javascript"><!--
+
+
+
+
 $('#review').delegate('.pagination a', 'click', function(e) {
     e.preventDefault();
 
@@ -545,6 +830,8 @@ $(document).ready(function() {
 			enabled: true
 		}
 	});
+  
+
 });
 //--></script> 
 {{ footer }} 
