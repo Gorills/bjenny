@@ -438,8 +438,16 @@
                   <div class="pesontedan">
                     <input id="pesontedan-{{ attribute.name | first}}{{ attribute.name | last}}" type="checkbox" name="pesontedans">
                     <label for="pesontedan-{{ attribute.name | first}}{{ attribute.name | last}}">{{ attribute.name }}</label>
+                    
                     <div class="pesontedan-content">
-                      <p>{{ attribute.text }}</p>
+
+                    {% autoescape false %}
+                      {{ attribute.text }} {# var won't be escaped #}
+                    {% endautoescape %}
+                       
+                   
+                     
+                   
                     </div>
                   </div>
                   

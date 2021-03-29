@@ -217,3 +217,22 @@ input {
 .compare-custom {
     // height: 80vh;
 }
+
+
+.pagination {
+
+    .active>span {
+        background-color: $bgc-gray!important;
+
+    }
+    li>a {
+        color: $fonts-gray!important;
+    }
+    li:first-child>span {
+        border-radius: 0!important;
+    }
+    li:last-child>a {
+        border-radius: 0!important; 
+    }
+
+}

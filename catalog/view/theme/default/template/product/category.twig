@@ -102,7 +102,7 @@
 
     {# Товары #}
 
-      <div class="product-custom"> 
+    <div class="product-custom"> 
       {% for product in products %}
 
       <div class="product-custom__item">
@@ -111,13 +111,35 @@
 
           <a class="product-custom__image-link" href="{{ product.href }}">
             <img src="{{ product.thumb }}" alt="{{ product.name }}" title="{{ product.name }}" class="product-custom__image" />
-            <img src="image/catalog/43.jpg" alt="{{ product.name }}" title="{{ product.name }}" class="product-custom__image-two" />
-          </a>
 
-          <div class="product-custom__button-size">
-              <p class="product-custom__button-size-text">S</p>
-              <p class="product-custom__button-size-text">M</p>
-          </div>
+              {% for image in product.images %}
+              <img src="{{ image }}" alt="{{ product.name }}" title="{{ product.name }}" class="product-custom__image-two" />
+              
+              {% endfor %}
+            
+          </a>
+          
+         
+           {% for opt in product.options %}
+
+              {% if opt.type == 'select' %}
+                   <div class="product-custom__button-size">
+                    {% for key, option_value in opt.product_option_value %}
+                    
+                          {% if key + 1 < option_value|length %}
+                              <p class="product-custom__button-size-text">{{ option_value.name }}</p>
+                          {% else %}
+                              
+                          {% endif %}
+                          
+                    {% endfor %}
+                     </div>
+
+                {% endif %}
+            {% endfor %}
+
+             
+         
           
           <button class="product-custom__button-cart" type="button" onclick="cart.add('{{ product.product_id }}');">
             <span>{{ button_cart }}</span>
@@ -165,21 +187,26 @@
             </p>
             {% endif %} 
             <div class="product-custom__price-color">
-              <div style="background-color:#333333;" class="product-custom__price-item">
-              
-              </div>
-              <div style="background-color: red;" class="product-custom__price-item">
-              
-              </div>
+
+              {% for opt in product.options %}
+                  {% if opt.type == 'radio' %}
+                      {% for option_value in opt.product_option_value %} 
+                            <div class="product-custom__price-item" style="background-color: {{ option_value.name }};">  </div>
+                        {% endfor %} 
+                  {% endif %}
+               {% endfor %}
+
             </div>
           </div>
         </div>
       </div>
    
-    
-  {% endfor %} 
+
+
+      {% endfor %} 
     
   </div>
+
       <div class="row">
         <div class="col-sm-6 text-left">{{ pagination }}</div>
         <div class="col-sm-6 text-right">{{ results }}</div>
@@ -214,6 +241,15 @@
 </div>
 
 {# Описание #}
+
+ {% for product in products %}
+
+
+   
+    
+
+ {% endfor %}
+
 
 
 

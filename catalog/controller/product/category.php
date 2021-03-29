@@ -14,6 +14,8 @@ class ControllerProductCategory extends Controller {
 		
 		
 		$data['text_empty'] = $this->language->get('text_empty');
+		
+		
 
 		if (isset($this->request->get['filter'])) {
 			$filter = $this->request->get['filter'];
