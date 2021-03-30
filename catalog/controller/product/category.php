@@ -198,11 +198,10 @@ class ControllerProductCategory extends Controller {
                 $images = array();
                 foreach ($productImages as $result_img) {
                     if ($result_img['image']) {
-                        $image_dop = $this->model_tool_image->resize($result['image'], $this->config->get('theme_' . $this->config->get('config_theme') . '_image_product_width'), $this->config->get('theme_' . $this->config->get('config_theme') . '_image_product_height'));
+                        $image_dop = $this->model_tool_image->resize($result_img['image'], $this->config->get('theme_' . $this->config->get('config_theme') . '_image_product_width'), $this->config->get('theme_' . $this->config->get('config_theme') . '_image_product_height'));
                         $images[] = $image_dop;
                     }
                 }
-
                 $options = array();
                 foreach ($this->model_catalog_product->getProductOptions($result['product_id']) as $option) {
                     $product_option_value_data = array();
